@@ -1,0 +1,4 @@
+7.Write a program to print the reverse of a string using recursion.
+def reverse_string(s):
+    return s if len(s) == 0 else s[-1] + reverse_string(s[:-1])
+print(reverse_string("Hello, World!"))
