@@ -1,0 +1,6 @@
+10.Write a program for to check whether a given String is Palindrome or  not using recursion.
+def is_palindrome(s):
+    s = s.lower().replace(" ", "")
+    return s == s[::-1] if len(s) <= 1 else is_palindrome(s[1:-1])
+string = "A man a plan a canal Panama"
+print(is_palindrome(string))
