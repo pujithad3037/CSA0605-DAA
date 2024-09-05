@@ -1,0 +1,8 @@
+9. Write a program to check a number is a prime number or not using recursion.
+def is_prime(n, divisor=2):
+    if n < 2: return False
+    if divisor * divisor > n: return True
+    if n % divisor == 0: return False
+    return is_prime(n, divisor + 1)
+number = 29
+print(f"{number} is prime: {is_prime(number)}")
