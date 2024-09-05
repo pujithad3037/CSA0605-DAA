@@ -1,0 +1,21 @@
+15.Write C programs for solving recurrence relations using the Master Theorem, Substitution Method, and Iteration Method will demonstrate how to calculate the time complexity of an example recurrence relation using the specified technique.
+def master_theorem(a, b, k):
+    if a < b**k:
+        return "T(n) = Θ(n^k)"
+    elif a == b**k:
+        return "T(n) = Θ(n^k log n)"
+    else:
+        return "T(n) = Θ(n^(log_b(a)))"
+def substitution_method(n):
+    if n == 1:
+        return 1
+    return 2 * substitution_method(n // 2) + n
+def iteration_method(n):
+    total = 0
+    while n > 1:
+        total += n
+        n //= 2
+    return total
+print(master_theorem(2, 2, 1))  
+print(substitution_method(8))   
+print(iteration_method(8))       
