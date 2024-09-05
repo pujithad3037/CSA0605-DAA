@@ -1,0 +1,15 @@
+28.You are given an array nums consisting of integers. You are also given a 2D array queries, where queries[i] = [posi, xi].For query i, we first set nums[posi] equal to xi, then we calculate the answer to query i which is the maximum sum of a subsequence of nums where no two adjacent elements are selected. Return the sum of the answers to all queries. Since the final answer may be very large, return it modulo 109 + 7. A subsequence is an array that can be derived from another array by deleting some or no elements without changing the order of the remaining elements.
+def max_sum(nums, queries):
+    def max_non_adjacent_sum(arr):
+        incl, excl = 0, 0
+        for num in arr:
+            new_excl = max(incl, excl)
+            incl = excl + num
+            excl = new_excl
+        return max(incl, excl)
+result = 0
+    mod = 10**9 + 7
+    for pos, x in queries:
+        nums[pos] = x
+        result = (result + max_non_adjacent_sum(nums)) % mod
+    return result
